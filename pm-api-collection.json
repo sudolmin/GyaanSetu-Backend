@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "b1418324-cd32-40c4-bed8-e99a34126f48",
+		"name": "GyaanSetu API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23954030",
+		"_collection_link": "https://orange-flare-482699.postman.co/workspace/Syncware~030f53cb-adab-4a95-a618-3a5fc04f7701/collection/23954030-b1418324-cd32-40c4-bed8-e99a34126f48?action=share&source=collection_link&creator=23954030"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"testpass\",\n    \"email\": \"testuser@example.com\",\n    \"is_tutor\": false,\n    \"is_student\": true\n}"
+						},
+						"url": {
+							"raw": "{{GYAN_URL}}/api/u/register/",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"api",
+								"u",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/users/:id",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tutor Profile",
+			"item": [
+				{
+					"name": "Create Tutor Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": 1,\n    \"skills\": \"Math, Science\",\n    \"subjects\": \"Math, Science\",\n    \"class_level\": {\"1-5\": true, \"6-8\": true},\n    \"experience\": {\"years\": 5, \"students_taught\": 50},\n    \"metadata\": {\"preferred_location\": \"Online\", \"preferred_time\": \"Evenings\"}\n}"
+						},
+						"url": {
+							"raw": "{{GYAN_URL}}/tutor-profile",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"tutor-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tutor Profile Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/tutor-profile/:id",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"tutor-profile",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student Profile",
+			"item": [
+				{
+					"name": "Create Student Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": 1,\n    \"subjects\": \"Math, Science\",\n    \"class_level\": \"6-8\",\n    \"location\": \"New York\"\n}"
+						},
+						"url": {
+							"raw": "{{GYAN_URL}}/student-profile",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"student-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student Profile Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/student-profile/:id",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"student-profile",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Post",
+			"item": [
+				{
+					"name": "Create Job Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": 1,\n    \"title\": \"Looking for a Math Tutor\",\n    \"description\": \"Need a math tutor for high school level.\",\n    \"subject\": [1],\n    \"location\": \"Online\",\n    \"hourly_rate\": 20.00,\n    \"currency\": \"USD\"\n}"
+						},
+						"url": {
+							"raw": "{{GYAN_URL}}/job-posts/create",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"job-posts",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Post List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/job-posts",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"job-posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Post Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/job-posts/:id",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"job-posts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": 1,\n    \"review\": \"Great tutor!\",\n    \"rating\": 5,\n    \"tutor\": 2,\n    \"student\": 1\n}"
+						},
+						"url": {
+							"raw": "{{GYAN_URL}}/reviews/create",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"reviews",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Review List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/reviews",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Review Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/reviews/:id",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subjects",
+			"item": [
+				{
+					"name": "Create Subject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject_name\": \"Mathematics\",\n    \"subject_code\": \"MATH101\"\n}"
+						},
+						"url": {
+							"raw": "{{GYAN_URL}}/subjects",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subject List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/subjects",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subject Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GYAN_URL}}/subjects/:id",
+							"host": [
+								"{{GYAN_URL}}"
+							],
+							"path": [
+								"subjects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "GYAN_URL",
+			"value": "http://localhost:8888"
+		}
+	]
+}
